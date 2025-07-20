@@ -126,6 +126,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 inferTech(repo.name);
                 
+                // Check for GitHub Pages
+                const githubPagesUrl = `https://${repo.owner.login}.github.io/${repo.name}`;
+                const hasGithubPages = repo.has_pages;
+                
                 return `
                     <div class="project-card">
                         <h3 class="project-title">${repo.name}</h3>
@@ -146,6 +150,12 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <a href="${repo.homepage}" target="_blank" class="project-link">
                                     <i class="fas fa-external-link-alt"></i>
                                     Live Demo
+                                </a>
+                            ` : ''}
+                            ${hasGithubPages && !repo.homepage ? `
+                                <a href="${githubPagesUrl}" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                    GitHub Pages
                                 </a>
                             ` : ''}
                         </div>
