@@ -1,5 +1,6 @@
 venv/*
 .venv/*
+yt-dlp-env/*
 .claude/*
 prompts/*
 GEMINI.md
