@@ -1,4 +1,4 @@
-# Steve Dearstyne - Portfolio Website
+# Portfolio Website
 
 A modern, responsive portfolio website showcasing my work as a cybersecurity professional and pianist.
 
