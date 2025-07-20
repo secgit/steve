@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steve Dearstyne - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">SD</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#music" class="nav-link">Music</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Steve Dearstyne</h1>
+                <p class="hero-subtitle">Cybersecurity Professional & Pianist</p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">About Me</a>
+                    <a href="assets/documents/Dearstyne_resume.pdf" target="_blank" class="btn btn-secondary">
+                        <i class="fas fa-download"></i> Resume
+                    </a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-arrow"></div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="assets/images/linkedin profile picture.jpg" alt="Steve Dearstyne" class="profile-picture">
+                    </div>
+                    <div class="about-text">
+                        <p>Welcome to my portfolio. I'm a cybersecurity professional and CISSP-certified expert with extensive experience in identity and access management, SIEM solutions, and industrial control system security.</p>
+                        <p>With a Master's degree in Computing Security from Rochester Institute of Technology and years of hands-on experience at Air Products and Chemicals, I specialize in developing security automation solutions and protecting critical infrastructure. When I'm not securing systems, you'll find me at the piano, bringing classical pieces to life.</p>
+                        <div class="certifications">
+                            <h3>Certifications</h3>
+                            <div class="cert-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span class="cert-name">Certified Information Systems Security Professional (CISSP)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="publications-inline">
+                            <h3>Publications</h3>
+                            <div class="publication-item-inline">
+                                <h4 class="publication-title-inline">Leveraging public posts and comments as covert channels</h4>
+                                <span class="publication-venue-inline">IEEE IWSSP 2014 Proceedings</span>
+                                <p class="publication-description-inline">
+                                    Research on using public social media posts and comments as covert communication channels.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="skills">
+                            <h3>Core Expertise</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Cybersecurity</span>
+                                <span class="skill-tag">Identity & Access Management</span>
+                                <span class="skill-tag">SIEM</span>
+                                <span class="skill-tag">PowerShell</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">.NET</span>
+                                <span class="skill-tag">Industrial Control Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="music" class="music">
+            <div class="container">
+                <h2 class="section-title">Musical Performances</h2>
+                <div class="music-content">
+                    <div class="audio-player">
+                        <div class="player-info">
+                            <h3>Chopin Nocturne Op. 9 No. 2</h3>
+                            <p>One of Chopin's most beloved nocturnes, performed with personal interpretation and emotional depth.</p>
+                        </div>
+                        <div class="player-controls">
+                            <audio controls preload="metadata">
+                                <source src="assets/audio/Chopin Nocturne Op 9 No 2.WAV" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">GitHub Projects</h2>
+                <div class="projects-grid" id="projects-grid">
+                    <div class="loading">Loading repositories...</div>
+                </div>
+                <div class="github-link">
+                    <a href="https://github.com/secgit" target="_blank" class="btn btn-outline">
+                        <i class="fab fa-github"></i> View All Repositories
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <p>Let's connect and discuss opportunities, collaborations, or just chat about code and music.</p>
+                    <div class="contact-links">
+                        <a href="https://github.com/secgit" target="_blank" class="contact-link">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="mailto:contact@example.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-link">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Steve Dearstyne. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+venv/*
+.venv/*
+.claude/*
+prompts/*
+GEMINI.md
+AGENTS.md
+CLAUDE.md
