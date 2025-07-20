@@ -59,9 +59,22 @@ body {
 }
 
 .nav-logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--accent-primary);
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-primary);
+    transition: var(--transition);
+}
+
+.nav-logo-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
 }
 
 .nav-menu {
@@ -385,8 +398,19 @@ section {
     margin-top: 0;
 }
 
-.publication-venue-inline {
+.publication-title-inline a {
     color: var(--accent-primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.publication-title-inline a:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
+}
+
+.publication-venue-inline {
+    color: var(--text-secondary);
     font-weight: 500;
     font-size: 0.9rem;
     display: block;
