@@ -138,7 +138,7 @@ body {
 
 .hero-content {
     z-index: 2;
-    animation: heroReveal 1s ease-out forwards;
+    animation: heroEntrance 1s ease-out forwards;
 }
 
 .hero-title {
@@ -688,30 +688,31 @@ section {
         transform: translateY(0);
     }
 }
-@keyframes heroReveal {
-  0% {
+@keyframes heroEntrance {
+  from {
     opacity: 0;
-    transform: scale(1.1);
-    filter: blur(8px);
+    transform: translateY(30px) scale(0.95) rotate(-2deg);
   }
-  100% {
+  to {
     opacity: 1;
-    transform: scale(1);
-    filter: blur(0);
+    transform: translateY(0) scale(1) rotate(0deg);
   }
 }
 
 
 /* Staggered animation delays for hero content */
 .hero-title {
+    animation: heroEntrance 1s ease-out forwards;
     animation-delay: 0.2s;
 }
 
 .hero-subtitle {
+    animation: heroEntrance 1s ease-out forwards;
     animation-delay: 0.4s;
 }
 
 .hero-buttons {
+    animation: heroEntrance 1s ease-out forwards;
     animation-delay: 0.6s;
 }
 
