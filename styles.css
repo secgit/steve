@@ -138,7 +138,6 @@ body {
 
 .hero-content {
     z-index: 2;
-    animation: heroEntrance 1s ease-out forwards;
 }
 
 .hero-title {
@@ -681,42 +680,14 @@ section {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px); /* Reduced vertical movement for subtlety */
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-@keyframes heroEntrance {
-  from {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95) rotate(-2deg);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1) rotate(0deg);
-  }
-}
 
-
-/* Staggered animation delays for hero content */
-.hero-title {
-    animation: heroEntrance 1s ease-out forwards;
-    animation-delay: 0.2s;
-}
-
-.hero-subtitle {
-    animation: heroEntrance 1s ease-out forwards;
-    animation-delay: 0.4s;
-}
-
-.hero-buttons {
-    animation: heroEntrance 1s ease-out forwards;
-    animation-delay: 0.6s;
-}
-
-/* The .fade-in-up class is no longer needed for the hero section */
-/* .fade-in-up {
+.fade-in-up {
     animation: fadeInUp 0.6s ease-out forwards;
-} */
+}
