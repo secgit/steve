@@ -55,10 +55,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    // Observe sections for animation
+    // Observe sections for animation, excluding the hero section which has custom animation
     document.querySelectorAll('section').forEach(section => {
-        observer.observe(section);
+        if (section.id !== 'home') {
+            observer.observe(section);
+        }
     });
+
+    // Specific animation for hero section elements
+    const heroSection = document.getElementById('home');
+    if (heroSection) {
+        const heroElements = heroSection.querySelectorAll('.hero-content > *'); // Select direct children
+        const heroObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    heroElements.forEach((element, index) => {
+                        // Apply fade-in-up with staggered delays
+                        setTimeout(() => {
+                            element.classList.add('fade-in-up');
+                        }, index * 150); // Stagger by 150ms per element
+                    });
+                    // Once animated, disconnect observer for this section if only needed once
+                    heroObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        heroObserver.observe(heroSection);
+    }
 
     // GitHub repositories fetching
     async function fetchGitHubRepos() {
