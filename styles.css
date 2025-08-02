@@ -133,21 +133,34 @@ body {
     flex-direction: column;
     text-align: center;
     position: relative;
-    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+    background-size: 200% 200%;
+    animation: heroBgAnimation 10s ease infinite;
 }
 
 .hero-content {
     z-index: 2;
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    animation: heroFadeInSlide 1.2s ease-out forwards;
+    animation-delay: 0.3s;
 }
 
 .hero-title {
-    font-size: clamp(3rem, 8vw, 6rem);
+    font-size: clamp(2.5rem, 7vw, 6rem);
     font-weight: 700;
     margin-bottom: 1rem;
     background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.decrypt-text {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .hero-subtitle {
@@ -674,9 +687,53 @@ section {
     .project-links {
         flex-direction: column;
     }
+    
+    .hero-title {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: clamp(1.8rem, 5.5vw, 2.5rem);
+    }
 }
 
 /* Animations */
+/* Hero content animations for desktop and mobile */
+@keyframes heroFadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes heroFadeInMobile {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Hero background gradient animation */
+@keyframes heroBgAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -688,6 +745,26 @@ section {
     }
 }
 
+
 .fade-in-up {
     animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    animation: heroFadeInMobile 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero,
+  .hero-content {
+    animation: none;
+  }
+  
+  .decrypt-text {
+    opacity: 1;
+    visibility: visible;
+  }
 }

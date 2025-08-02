@@ -250,5 +250,64 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set current year in footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
+    // Decryption text animation
+    function decryptText(element, startDelay = 0, targetDuration = 1500) {
+        setTimeout(() => {
+            // Check for reduced motion preference
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                // Just show the element normally if reduced motion is preferred
+                element.style.opacity = '1';
+                element.style.visibility = 'visible';
+                return;
+            }
+            
+            // Show the element before starting animation
+            element.style.opacity = '1';
+            element.style.visibility = 'visible';
+            
+            const text = element.dataset.text;
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
+            let progress = 0;
+            
+            // Calculate timing based on text length for perfect synchronization
+            // We want all texts to finish at exactly the same time regardless of length
+            const totalSteps = Math.ceil(targetDuration / 30); // 30ms intervals for smooth animation
+            const progressIncrement = text.length / totalSteps; // How many characters to reveal per step
+            
+            const interval = setInterval(() => {
+                const charactersToShow = Math.floor(progress);
+                
+                element.textContent = text
+                    .split('')
+                    .map((char, index) => {
+                        if (index < charactersToShow) {
+                            return text[index];
+                        }
+                        return characters[Math.floor(Math.random() * characters.length)];
+                    })
+                    .join('');
+                
+                progress += progressIncrement;
+                
+                if (progress >= text.length) {
+                    clearInterval(interval);
+                    // Ensure final text is correct
+                    element.textContent = text;
+                }
+            }, 30);
+        }, startDelay);
+    }
+    
+    // Start decryption animation for all text elements
+    setTimeout(() => {
+        const decryptElements = document.querySelectorAll('.decrypt-text');
+        const animationDuration = 1500; // All animations will take 1.5 seconds
+        
+        decryptElements.forEach((element, index) => {
+            // All elements start at the same time (no stagger) and finish together
+            decryptText(element, 0, animationDuration);
+        });
+    }, 800);
+
     console.log('Portfolio website loaded successfully!');
 });
